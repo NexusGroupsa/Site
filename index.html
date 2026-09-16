@@ -1,14 +1,231 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Nexus Group - Ward</title>
-<meta http-equiv="refresh" content="0; url=/ward/">
-<script>
-  window.location.href = '/ward/';
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Group</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;}
+body{
+  font-family:'Cairo',sans-serif;
+  background:#FAF8F5;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* خلفية نقاط ناعمة */
+body::before{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;
+  opacity:.35;
+  background-image:radial-gradient(rgba(50,69,91,.08) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+
+/* هالات لونية خفيفة */
+.glow-1{
+  position:fixed;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(226,232,240,.6) 0%,transparent 70%);
+  top:-200px;left:-150px;
+  pointer-events:none;
+  filter:blur(40px);
+}
+.glow-2{
+  position:fixed;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(184,147,95,.15) 0%,transparent 70%);
+  bottom:-200px;right:-150px;
+  pointer-events:none;
+  filter:blur(40px);
+}
+
+/* الحاوية الرئيسية */
+.container{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+  text-align:center;
+  animation:fadeIn 1.2s cubic-bezier(.2,.7,.3,1);
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px) scale(.96)}
+  to{opacity:1;transform:none}
+}
+
+/* الشعار */
+.logo{
+  width:clamp(240px, 35vw, 500px);
+  height:auto;
+  max-height:60vh;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 20px 40px rgba(50,69,91,.15));
+  animation:floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* خط ذهبي فاصل */
+.separator{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:clamp(240px, 35vw, 500px);
+  opacity:0;
+  animation:fadeInSeparator 1s ease .6s forwards;
+}
+
+@keyframes fadeInSeparator{
+  to{opacity:1}
+}
+
+.separator-line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,147,95,.5) 50%,
+    transparent 100%);
+}
+.separator-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#B8935F,#E5C99F);
+  box-shadow:0 0 12px rgba(184,147,95,.6);
+  animation:dotPulse 2.5s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes dotPulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.4);opacity:.85}
+}
+
+/* زر الدخول */
+.enter-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 40px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#32455B,#1F2D3D 55%,#4A6078);
+  color:#FFFFFF;
+  font-family:'Cairo',sans-serif;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:
+    0 16px 40px rgba(50,69,91,.35),
+    0 0 0 1px rgba(184,147,95,.3),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  transition:.35s cubic-bezier(.2,.7,.3,1);
+  position:relative;
+  overflow:hidden;
+  opacity:0;
+  animation:fadeInBtn .8s ease .8s forwards;
+}
+
+@keyframes fadeInBtn{
+  to{opacity:1}
+}
+
+.enter-btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,147,95,.35) 45%,
+    rgba(184,147,95,.5) 50%,
+    rgba(184,147,95,.35) 55%,
+    transparent 100%);
+  background-size:200% 100%;
+  animation:shine 3s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes shine{
+  0%{background-position:100% 0}
+  50%{background-position:-100% 0}
+  100%{background-position:100% 0}
+}
+
+.enter-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 22px 50px rgba(50,69,91,.45),
+    0 0 0 1px rgba(184,147,95,.5),
+    inset 0 1px 0 rgba(255,255,255,.35);
+}
+
+.enter-btn svg{
+  width:18px;
+  height:18px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:.35s ease;
+}
+.enter-btn:hover svg{
+  transform:translateX(-4px);
+}
+
+/* استجابة للجوال */
+@media (max-width:520px){
+  .container{gap:28px}
+  .logo{width:70vw;max-height:50vh}
+  .separator{width:70vw}
+  .enter-btn{padding:14px 32px;font-size:14px}
+}
+</style>
 </head>
 <body>
-<p>جاري التحويل... <a href="/ward/">اضغط هنا</a></p>
+
+<div class="glow-1"></div>
+<div class="glow-2"></div>
+
+<div class="container">
+
+  <!-- ✅ الشعار من المسار الرئيسي -->
+  <img src="logo.png" alt="Nexus Group" class="logo">
+
+  <!-- فاصل ذهبي -->
+  <div class="separator">
+    <span class="separator-line"></span>
+    <span class="separator-dot"></span>
+    <span class="separator-line"></span>
+  </div>
+
+  <!-- زر الدخول -->
+  <a href="ward/" class="enter-btn">
+    <span>ادخل الموقع</span>
+    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  </a>
+
+</div>
+
 </body>
 </html>
