@@ -30,7 +30,7 @@ body::before{
   background-size:24px 24px;
 }
 
-/* هالات لونية خفيفة */
+/* هالات لونية */
 .glow-1{
   position:fixed;
   width:500px;height:500px;
@@ -50,14 +50,15 @@ body::before{
   filter:blur(40px);
 }
 
-/* الحاوية الرئيسية */
+/* الحاوية */
 .container{
   position:relative;
   z-index:2;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:40px;
+  justify-content:center;
+  gap:36px;
   text-align:center;
   animation:fadeIn 1.2s cubic-bezier(.2,.7,.3,1);
 }
@@ -69,7 +70,7 @@ body::before{
 
 /* الشعار */
 .logo{
-  width:clamp(240px, 35vw, 500px);
+  width:clamp(280px, 40vw, 600px);
   height:auto;
   max-height:60vh;
   object-fit:contain;
@@ -83,12 +84,12 @@ body::before{
   50%{transform:translateY(-8px)}
 }
 
-/* خط ذهبي فاصل */
+/* الفاصل الذهبي */
 .separator{
   display:flex;
   align-items:center;
   gap:14px;
-  width:clamp(240px, 35vw, 500px);
+  width:clamp(280px, 40vw, 600px);
   opacity:0;
   animation:fadeInSeparator 1s ease .6s forwards;
 }
@@ -102,7 +103,7 @@ body::before{
   height:1px;
   background:linear-gradient(90deg,
     transparent 0%,
-    rgba(184,147,95,.5) 50%,
+    rgba(184,147,95,.6) 50%,
     transparent 100%);
 }
 .separator-dot{
@@ -110,7 +111,9 @@ body::before{
   height:8px;
   border-radius:50%;
   background:linear-gradient(145deg,#B8935F,#E5C99F);
-  box-shadow:0 0 12px rgba(184,147,95,.6);
+  box-shadow:
+    0 0 12px rgba(184,147,95,.7),
+    0 0 24px rgba(184,147,95,.35);
   animation:dotPulse 2.5s ease-in-out infinite;
   flex-shrink:0;
 }
@@ -119,86 +122,11 @@ body::before{
   50%{transform:scale(1.4);opacity:.85}
 }
 
-/* زر الدخول */
-.enter-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  padding:16px 40px;
-  border:none;
-  border-radius:999px;
-  background:linear-gradient(135deg,#32455B,#1F2D3D 55%,#4A6078);
-  color:#FFFFFF;
-  font-family:'Cairo',sans-serif;
-  font-size:15px;
-  font-weight:800;
-  cursor:pointer;
-  text-decoration:none;
-  box-shadow:
-    0 16px 40px rgba(50,69,91,.35),
-    0 0 0 1px rgba(184,147,95,.3),
-    inset 0 1px 0 rgba(255,255,255,.25);
-  transition:.35s cubic-bezier(.2,.7,.3,1);
-  position:relative;
-  overflow:hidden;
-  opacity:0;
-  animation:fadeInBtn .8s ease .8s forwards;
-}
-
-@keyframes fadeInBtn{
-  to{opacity:1}
-}
-
-.enter-btn::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(184,147,95,.35) 45%,
-    rgba(184,147,95,.5) 50%,
-    rgba(184,147,95,.35) 55%,
-    transparent 100%);
-  background-size:200% 100%;
-  animation:shine 3s ease-in-out infinite;
-  pointer-events:none;
-}
-
-@keyframes shine{
-  0%{background-position:100% 0}
-  50%{background-position:-100% 0}
-  100%{background-position:100% 0}
-}
-
-.enter-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 22px 50px rgba(50,69,91,.45),
-    0 0 0 1px rgba(184,147,95,.5),
-    inset 0 1px 0 rgba(255,255,255,.35);
-}
-
-.enter-btn svg{
-  width:18px;
-  height:18px;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:2.5;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  transition:.35s ease;
-}
-.enter-btn:hover svg{
-  transform:translateX(-4px);
-}
-
 /* استجابة للجوال */
 @media (max-width:520px){
   .container{gap:28px}
-  .logo{width:70vw;max-height:50vh}
-  .separator{width:70vw}
-  .enter-btn{padding:14px 32px;font-size:14px}
+  .logo{width:75vw;max-height:50vh}
+  .separator{width:75vw}
 }
 </style>
 </head>
@@ -209,21 +137,15 @@ body::before{
 
 <div class="container">
 
-  <!-- ✅ الشعار من المسار الرئيسي -->
-  <img src="logo.png" alt="Nexus Group" class="logo">
+  <!-- الشعار -->
+ <img src="Logo.png" alt="Nexus Group" class="logo">
 
-  <!-- فاصل ذهبي -->
+  <!-- ✅ الفاصل الذهبي -->
   <div class="separator">
     <span class="separator-line"></span>
     <span class="separator-dot"></span>
     <span class="separator-line"></span>
   </div>
-
-  <!-- زر الدخول -->
-  <a href="ward/" class="enter-btn">
-    <span>ادخل الموقع</span>
-    <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-  </a>
 
 </div>
 
