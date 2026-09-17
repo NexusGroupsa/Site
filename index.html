@@ -2,22 +2,28 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Nexus Group</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;}
+
+html,body{
+  width:100%;
+  min-height:100%;
+}
 
 body{
   font-family:'Cairo',sans-serif;
   min-height:100vh;
+  min-height:100dvh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
   position:relative;
 
   background:
@@ -25,6 +31,7 @@ body{
     radial-gradient(circle at 15% 20%, rgba(50,69,91,.06) 0%, transparent 45%),
     radial-gradient(circle at 85% 80%, rgba(50,69,91,.06) 0%, transparent 45%),
     linear-gradient(135deg, #FDFCFA 0%, #F7F4EF 50%, #F0EBE3 100%);
+  background-attachment:fixed;
 }
 
 body::before{
@@ -88,6 +95,7 @@ body::after{
   50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}
 }
 
+/* الحاوية */
 .container{
   position:relative;
   z-index:2;
@@ -98,6 +106,10 @@ body::after{
   gap:36px;
   text-align:center;
   animation:fadeIn 1.2s cubic-bezier(.2,.7,.3,1);
+  min-height:100vh;
+  min-height:100dvh;
+  padding:40px 20px 60px;
+  width:100%;
 }
 
 @keyframes fadeIn{
@@ -105,6 +117,7 @@ body::after{
   to{opacity:1;transform:none}
 }
 
+/* الشعار */
 .logo{
   width:clamp(300px, 45vw, 800px);
   height:auto;
@@ -124,6 +137,7 @@ body::after{
   50%{transform:translateY(-8px)}
 }
 
+/* الفاصل الذهبي */
 .separator{
   display:flex;
   align-items:center;
@@ -163,7 +177,7 @@ body::after{
   50%{transform:scale(1.4);opacity:.85}
 }
 
-/* ===== ✅ فقاعات الصابون ===== */
+/* ===== فقاعات الصابون ===== */
 .partners{
   display:flex;
   align-items:center;
@@ -267,8 +281,8 @@ body::after{
 }
 
 .bubble .bubble-logo{
-  width:90%;
-  height:90%;
+  width:52%;
+  height:52%;
   object-fit:contain;
   position:relative;
   z-index:3;
@@ -327,7 +341,7 @@ body::after{
   transition:transform .12s ease;
 }
 
-/* ✅ إخفاء الفقاعات الإضافية مؤقتاً */
+/* إخفاء الفقاعات الإضافية مؤقتاً */
 .bubble.hidden{
   display:none;
 }
@@ -343,18 +357,28 @@ body::after{
   50%{margin-top:-7px}
 }
 
+/* ===== استجابة للجوال ===== */
 @media (max-width:900px){
   .center-glow{width:600px;height:600px}
   .glow-1,.glow-2{width:400px;height:400px}
 }
 
 @media (max-width:520px){
-  .container{gap:28px}
-  .logo{width:80vw;max-height:55vh}
+  .container{
+    gap:24px;
+    padding:30px 16px 60px;
+  }
+  .logo{
+    width:78vw;
+    max-height:45vh;
+  }
   .separator{width:80vw}
   .center-glow{width:400px;height:400px}
   .glow-1,.glow-2{width:300px;height:300px}
-  .partners{gap:18px}
+  .partners{
+    gap:18px;
+    width:92vw;
+  }
   .bubble{width:78px;height:78px}
 }
 </style>
@@ -367,31 +391,33 @@ body::after{
 
 <div class="container">
 
+  <!-- الشعار الرئيسي -->
   <img src="Logo.png" alt="Nexus Group" class="logo">
 
+  <!-- الفاصل الذهبي -->
   <div class="separator">
     <span class="separator-line"></span>
     <span class="separator-dot"></span>
     <span class="separator-line"></span>
   </div>
 
-  <!-- ✅ فقاعات الصابون -->
+  <!-- فقاعات الصابون -->
   <div class="partners">
 
     <!-- 1) WardLogo.png -->
-    <a href="ward/index.html" class="bubble" aria-label="Ward">
+    <a href="PAGE1.html" class="bubble" aria-label="Ward">
       <span class="halo"></span>
       <img src="WardLogo.png" alt="Ward" class="bubble-logo-ward">
     </a>
 
-    <!-- 2) ClLogo.png - Digital Nexus -->
+    <!-- 2) Cl Logo.png - Digital Nexus -->
     <a href="PAGE2.html" class="bubble" aria-label="Digital Nexus">
       <span class="halo"></span>
-      <img src="ClLogo.png" alt="Digital Nexus" class="bubble-logo">
+      <img src="Cl Logo.png" alt="Digital Nexus" class="bubble-logo">
     </a>
 
     <!-- 3) الشعار الثالث -->
-    <a href="PAGE3.html" class="bubble hidden" aria-label="الجهة الثالثة">
+    <a href="PAGE3.html" class="bubble" aria-label="الجهة الثالثة">
       <span class="halo"></span>
       <img src="Logo3.png" alt="الجهة الثالثة" class="bubble-logo">
     </a>
