@@ -944,244 +944,240 @@ body::before{
   .contact-value{font-size:14px;padding:7px 16px}
 }
 
-/* ✅ جوال: نخلي العرض مثل الكمبيوتر — إطار واحد بدون تمرير */
+/* ==================== ✅ الجوال ==================== */
 @media (max-width:900px){
+
+  html,body{
+    width:100% !important;
+    height:100% !important;
+    overflow:hidden !important;
+  }
+
   body{
-    padding:0;
-    align-items:stretch;
-    overflow:hidden;
+    padding:0 !important;
+    display:block !important;
+    align-items:stretch !important;
+    justify-content:stretch !important;
   }
 
   .stage{
-    width:100%;
-    height:100vh;
-    height:100dvh;
-    aspect-ratio:auto;
-    padding:0;
-    border-radius:0;
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    height:100dvh !important;
+    aspect-ratio:auto !important;
+    max-width:none !important;
+    padding:0 !important;
   }
 
   .deck{
-    position:relative;
-    inset:auto;
-    width:100%;
-    height:100%;
-    border-radius:0;
-    box-shadow:none;
-    border:none;
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    border:none !important;
+    display:flex !important;
+    flex-direction:column !important;
   }
 
-  /* الشريط العلوي: مضغوط ومرتب */
   .top-nav{
-    padding:8px 10px;
-    gap:4px;
-    min-height:auto;
-    border-radius:0;
-    background:#FFFFFF;
+    flex:0 0 auto !important;
+    min-height:52px !important;
+    padding:6px 8px !important;
+    gap:3px !important;
+    overflow-x:auto !important;
   }
-  .brand{
-    padding-left:8px;
-    margin-left:2px;
-    border-left:1px solid rgba(226,232,240,.9);
-  }
-  .brand img{height:44px}
-  .top-pill{
-    padding:7px 10px;
-    font-size:11px;
-    gap:4px;
-  }
-  .top-pill::before{width:4px;height:4px}
-  .lang-toggle{
-    padding:6px 10px;
-    font-size:10.5px;
-    gap:5px;
-  }
-  .lang-toggle svg{width:13px;height:13px}
-  .lang-toggle .flag{font-size:12px}
 
-  /* الشريحة: نستخدم flexbox + clamp لتناسب الشاشة */
-  .slide{
-    padding:clamp(10px, 2.5vw, 22px) clamp(12px, 3vw, 26px);
+  .brand{padding-left:6px !important;margin-left:2px !important}
+  .brand img{height:40px !important}
+
+  .top-pill{
+    padding:6px 9px !important;
+    font-size:10.5px !important;
+    gap:3px !important;
   }
-  .slide-area{min-height:0}
+  .top-pill::before{width:3.5px !important;height:3.5px !important}
+
+  .lang-toggle{
+    padding:5px 9px !important;
+    font-size:10px !important;
+    gap:4px !important;
+  }
+  .lang-toggle svg{width:12px !important;height:12px !important}
+  .lang-toggle .flag{font-size:11px !important}
+
+  .slide-area{
+    flex:1 1 auto !important;
+    position:relative !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  .slide{
+    position:absolute !important;
+    inset:0 !important;
+    padding:clamp(10px, 2.5vw, 18px) clamp(12px, 3vw, 22px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow-y:auto !important;
+  }
 
   .content-wrap,
   .multi-content{
-    padding:0;
-    gap:clamp(6px, 1.5vw, 12px);
+    padding:0 !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
+    flex:1 !important;
   }
 
   .block,
   .multi-block{
-    padding:clamp(10px, 2vw, 16px) clamp(12px, 2.5vw, 20px);
-    border-radius:clamp(14px, 3vw, 20px);
+    padding:clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 18px) !important;
+    border-radius:14px !important;
   }
   .block::before,
-  .multi-block::before{font-size:38px;letter-spacing:4px}
-  .quote-mark{
-    font-size:clamp(50px, 10vw, 70px);
-    right:12px;
-    top:-14px;
-  }
+  .multi-block::before{font-size:34px !important;letter-spacing:3px !important}
+  .quote-mark{font-size:clamp(44px, 9vw, 60px) !important;right:10px !important;top:-10px !important}
 
-  .block-title{
-    gap:8px;
-    margin-bottom:5px;
-  }
+  .block-title{gap:8px !important;margin-bottom:4px !important}
   .block-title-icon{
-    width:clamp(30px, 6vw, 36px);
-    height:clamp(30px, 6vw, 36px);
-    border-radius:clamp(9px, 2vw, 12px);
+    width:32px !important;height:32px !important;border-radius:10px !important;
   }
-  .block-title-icon svg{
-    width:clamp(15px, 3vw, 18px);
-    height:clamp(15px, 3vw, 18px);
-  }
+  .block-title-icon svg{width:16px !important;height:16px !important}
   .block-title h2,
-  .multi-block .block-title h2{
-    font-size:clamp(14px, 3.6vw, 18px);
-  }
+  .multi-block .block-title h2{font-size:clamp(13.5px, 3.6vw, 16px) !important}
 
   .block-text,
   .multi-block .block-text{
-    font-size:clamp(11.5px, 2.9vw, 13.5px);
-    line-height:1.7;
-    padding-right:clamp(8px, 2vw, 12px);
+    font-size:clamp(11px, 2.9vw, 12.5px) !important;
+    line-height:1.7 !important;
+    padding-right:10px !important;
   }
 
-  /* 3 كتل في شريحة "من نحن" — نخليها تكفي بالضبط */
-  .multi-content{
-    justify-content:space-between;
-    padding:0;
-  }
-
-  /* شبكة 4 مزايا: نخليها 2x2 على الجوال */
   .features-grid-4{
-    grid-template-columns:repeat(2, 1fr);
-    gap:clamp(6px, 1.5vw, 10px);
-    align-content:stretch;
+    grid-template-columns:repeat(2, 1fr) !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
   }
   .feature-4{
-    padding:clamp(10px, 2vw, 14px) clamp(8px, 2vw, 12px);
-    border-radius:14px;
-    gap:clamp(6px, 1.5vw, 10px);
+    padding:clamp(10px, 2vw, 14px) clamp(8px, 2vw, 12px) !important;
+    border-radius:14px !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
   }
   .feature-4 .feature-icon{
-    width:clamp(42px, 9vw, 52px);
-    height:clamp(42px, 9vw, 52px);
-    border-radius:14px;
+    width:clamp(40px, 9vw, 50px) !important;
+    height:clamp(40px, 9vw, 50px) !important;
   }
-  .feature-4 .feature-icon svg{
-    width:clamp(20px, 4.5vw, 26px);
-    height:clamp(20px, 4.5vw, 26px);
-  }
-  .feature-4 h3{font-size:clamp(11px, 2.8vw, 13px)}
-  .feature-4 p{font-size:clamp(9px, 2.2vw, 11px)}
+  .feature-4 .feature-icon svg{width:22px !important;height:22px !important}
+  .feature-4 h3{font-size:clamp(11px, 2.8vw, 13px) !important}
+  .feature-4 p{font-size:clamp(9px, 2.2vw, 10.5px) !important}
 
-  /* شبكة المنتجات: 4×2 على الجوال مثل الكمبيوتر */
   .products-grid{
-    grid-template-columns:repeat(4, 1fr);
-    grid-template-rows:repeat(2, 1fr);
-    gap:clamp(5px, 1.2vw, 9px);
+    grid-template-columns:repeat(4, 1fr) !important;
+    grid-template-rows:repeat(2, 1fr) !important;
+    gap:clamp(5px, 1.2vw, 9px) !important;
+    flex:1 !important;
   }
   .product{
-    padding:clamp(8px, 1.8vw, 12px) clamp(5px, 1.2vw, 9px);
-    border-radius:14px;
-    gap:clamp(6px, 1.5vw, 10px);
+    padding:clamp(8px, 1.8vw, 12px) clamp(5px, 1.2vw, 9px) !important;
+    border-radius:14px !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
   }
   .product-icon{
-    width:clamp(36px, 8vw, 46px);
-    height:clamp(36px, 8vw, 46px);
-    border-radius:12px;
+    width:clamp(34px, 8vw, 44px) !important;
+    height:clamp(34px, 8vw, 44px) !important;
   }
-  .product-icon svg{
-    width:clamp(17px, 4vw, 22px);
-    height:clamp(17px, 4vw, 22px);
-  }
-  .product-name{font-size:clamp(10px, 2.4vw, 12px)}
+  .product-icon svg{width:18px !important;height:18px !important}
+  .product-name{font-size:clamp(10px, 2.4vw, 12px) !important}
 
-  /* المعرض: 3×2 على الجوال */
   .gallery{
-    grid-template-columns:repeat(3, 1fr);
-    grid-template-rows:repeat(2, 1fr);
-    gap:clamp(6px, 1.5vw, 10px);
-    align-content:stretch;
+    grid-template-columns:repeat(3, 1fr) !important;
+    grid-template-rows:repeat(2, 1fr) !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
+    flex:1 !important;
   }
-  .gallery-item{
-    max-width:none;
-    max-height:none;
-    border-radius:12px;
-  }
-  .gallery-overlay{padding:6px 6px 5px}
-  .gallery-overlay h3{font-size:clamp(9px, 2.2vw, 11px)}
+  .gallery-item{max-width:none !important;max-height:none !important;border-radius:12px !important}
+  .gallery-overlay{padding:6px 6px 5px !important}
+  .gallery-overlay h3{font-size:clamp(9px, 2.2vw, 11px) !important}
 
-  /* عملاؤنا: 3 أعمدة مثل الكمبيوتر */
   .partners-grid{
-    grid-template-columns:repeat(3, 1fr);
-    gap:clamp(8px, 2vw, 14px);
+    grid-template-columns:repeat(3, 1fr) !important;
+    gap:clamp(8px, 2vw, 14px) !important;
+    flex:1 !important;
   }
-  .partner-card{
-    padding:0;
-    gap:8px;
-  }
+  .partner-card{padding:0 !important;gap:6px !important}
   .partner-logo{
-    width:clamp(80px, 22vw, 130px);
-    height:clamp(80px, 22vw, 130px);
+    width:clamp(74px, 20vw, 120px) !important;
+    height:clamp(74px, 20vw, 120px) !important;
   }
-  .partner-logo img{padding:4px}
-  .partner-name{
-    font-size:clamp(10.5px, 2.5vw, 13px);
-    margin-top:0;
-  }
-  .partner-tag{
-    font-size:clamp(8.5px, 2vw, 10px);
-    padding:3px 8px;
-  }
+  .partner-logo img{padding:4px !important}
+  .partner-name{font-size:clamp(10px, 2.5vw, 12px) !important;margin-top:0 !important}
+  .partner-tag{font-size:clamp(8px, 2vw, 10px) !important;padding:3px 8px !important}
 
-  /* للتواصل: عمودين على الجوال مثل الكمبيوتر */
   .contact-grid{
-    grid-template-columns:1fr 1fr;
-    gap:clamp(8px, 2vw, 12px);
+    grid-template-columns:1fr 1fr !important;
+    gap:clamp(8px, 2vw, 12px) !important;
+    flex:1 !important;
   }
   .contact-card{
-    padding:clamp(12px, 2.5vw, 18px) clamp(10px, 2vw, 14px);
-    border-radius:16px;
-    gap:clamp(8px, 1.8vw, 12px);
+    padding:clamp(12px, 2.5vw, 18px) clamp(8px, 2vw, 14px) !important;
+    border-radius:14px !important;
+    gap:clamp(6px, 1.5vw, 10px) !important;
   }
   .contact-icon{
-    width:clamp(48px, 11vw, 60px);
-    height:clamp(48px, 11vw, 60px);
-    border-radius:16px;
+    width:clamp(44px, 10vw, 56px) !important;
+    height:clamp(44px, 10vw, 56px) !important;
+    border-radius:14px !important;
   }
-  .contact-icon svg{
-    width:clamp(22px, 5vw, 28px);
-    height:clamp(22px, 5vw, 28px);
-  }
-  .contact-label{font-size:clamp(11px, 2.6vw, 13px)}
-  .contact-subtitle{font-size:clamp(9px, 2.1vw, 11px);max-width:none}
+  .contact-icon svg{width:clamp(20px, 4.5vw, 26px) !important;height:clamp(20px, 4.5vw, 26px) !important}
+  .contact-label{font-size:clamp(10.5px, 2.6vw, 12.5px) !important}
+  .contact-subtitle{font-size:clamp(8.5px, 2vw, 10.5px) !important;max-width:none !important}
   .contact-value{
-    font-size:clamp(11px, 2.6vw, 13px);
-    padding:clamp(4px, 1vw, 7px) clamp(10px, 2.2vw, 14px);
+    font-size:clamp(10.5px, 2.5vw, 12.5px) !important;
+    padding:clamp(4px, 1vw, 6px) clamp(9px, 2vw, 13px) !important;
   }
+
+  .separator{gap:6px !important;padding:0 !important}
+  .separator-dot{width:5px !important;height:5px !important}
 }
 
 @media (max-width:520px){
-  .top-nav{padding:6px 8px;gap:3px}
-  .brand{padding-left:6px}
-  .brand img{height:38px}
-  .top-pill{
-    padding:6px 8px;
-    font-size:10.5px;
-    gap:3px;
-  }
-  .top-pill::before{width:3.5px;height:3.5px}
-  .lang-toggle{
-    padding:5px 8px;
-    font-size:10px;
-    gap:4px;
-  }
-  .lang-toggle svg{width:12px;height:12px}
-  .lang-toggle .flag{font-size:11px}
+  .brand img{height:36px !important}
+  .top-pill{padding:5px 7px !important;font-size:10px !important}
+  .lang-toggle{padding:4px 7px !important;font-size:9.5px !important}
+}
+
+/* إنجليزي - LTR */
+html[lang="en"] body{direction:ltr}
+html[lang="en"] .brand{
+  padding-left:0;
+  padding-right:16px;
+  margin-left:0;
+  margin-right:6px;
+  border-left:none;
+  border-right:1px solid rgba(226,232,240,.9);
+}
+html[lang="en"] .lang-toggle{
+  margin-right:0;
+  margin-left:auto;
+}
+html[lang="en"] .block-text{
+  padding-right:0;
+  padding-left:14px;
+  border-right:none;
+  border-left:3px solid transparent;
+  border-image:linear-gradient(180deg,#32455B,#B8935F) 1;
+}
+html[lang="en"] .quote-mark{
+  right:auto;
+  left:22px;
+  transform:scaleX(-1);
+}
+html[lang="en"] .block::before,
+html[lang="en"] .multi-block::before{
+  left:auto;
+  right:24px;
 }
 </style>
 </head>
